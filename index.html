@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Rama Krishna ❤ Sravani | Wedding 2026</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- EmailJS (Option 3 — sends email to couple on every RSVP) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       FALLING PETALS CANVAS (always on top)
+  ═══════════════════════════════════════════ -->
+  <canvas id="petal-canvas"></canvas>
+
+  <!-- ═══════════════════════════════════════════
+       CINEMATIC INTRO OVERLAY
+  ═══════════════════════════════════════════ -->
+  <div id="intro" aria-modal="true" role="dialog">
+    <div class="intro-deco top-left"></div>
+    <div class="intro-deco top-right"></div>
+    <div class="intro-deco bottom-left"></div>
+    <div class="intro-deco bottom-right"></div>
+
+    <div id="intro-inner">
+      <div class="intro-om">ॐ</div>
+      <p class="intro-sub">With the blessings of God &amp; family</p>
+      <h1 class="intro-names">
+        <span class="name-line">Rama Krishna</span>
+        <span class="amp">&amp;</span>
+        <span class="name-line">Sravani</span>
+      </h1>
+      <p class="intro-date">01 · May · 2026</p>
+      <button id="open-btn" onclick="openInvitation()">
+        <span>Open Invitation</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8l8 6 8-6"/><rect x="2" y="6" width="20" height="14" rx="2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN WEBSITE
+  ═══════════════════════════════════════════ -->
+  <main id="main">
+
+    <!-- NAV -->
+    <nav id="navbar">
+      <span class="nav-brand">R ❤ S</span>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+      </ul>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section id="hero">
+      <!-- Parallax temple background -->
+      <div class="hero-bg" id="hero-bg"></div>
+      <!-- Decorative garlands -->
+      <div class="garland garland-left">🌸🌼🌸🌼🌸</div>
+      <div class="garland garland-right">🌸🌼🌸🌼🌸</div>
+
+      <div class="hero-content" id="hero-content">
+        <p class="hero-eyebrow">Save The Date</p>
+        <h2 class="hero-names">
+        <span class="name-line">Rama Krishna</span>
+        <span class="hero-amp">❤</span>
+        <span class="name-line">Sravani</span>
+      </h2>
+        <div class="hero-divider"></div>
+        <p class="hero-date-line">Friday · 01 May 2026 · Jaggayyapet</p>
+        <a href="#events" class="hero-cta">View Details</a>
+      </div>
+
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- ── COUNTDOWN ── -->
+    <section id="countdown-section" class="section-pad bg-cream">
+      <h3 class="section-title">Counting to Forever</h3>
+      <div class="countdown-grid">
+        <div class="count-card">
+          <span class="count-num" id="days">00</span>
+          <span class="count-label">Days</span>
+        </div>
+        <div class="count-card">
+          <span class="count-num" id="hours">00</span>
+          <span class="count-label">Hours</span>
+        </div>
+        <div class="count-card">
+          <span class="count-num" id="minutes">00</span>
+          <span class="count-label">Minutes</span>
+        </div>
+        <div class="count-card">
+          <span class="count-num" id="seconds">00</span>
+          <span class="count-label">Seconds</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EVENTS ── -->
+    <section id="events" class="section-pad bg-white">
+      <h3 class="section-title">Wedding Events</h3>
+      <div class="events-grid">
+
+        <div class="event-card reveal">
+          <div class="event-icon">🪔</div>
+          <h4>Haldi &amp; Mehendi</h4>
+          <p class="event-date">30 April 2026 · 10:00 AM</p>
+          <p class="event-venue">Groom's Residence<br />SM Pet, Jaggayyapet</p>
+        </div>
+
+        <div class="event-card reveal featured">
+          <div class="event-icon">🛕</div>
+          <h4>Wedding Ceremony</h4>
+          <p class="event-date">01 May 2026 · 8:00 AM</p>
+          <p class="event-venue">Sri Venkateswara Kalyana Mandapam<br />Jaggayyapet, Krishna Dist.</p>
+          <a class="map-link" href="https://maps.google.com/?q=Jaggayyapet" target="_blank" rel="noopener">📍 View on Map</a>
+        </div>
+
+        <div class="event-card reveal">
+          <div class="event-icon">🍽️</div>
+          <h4>Reception</h4>
+          <p class="event-date">01 May 2026 · 7:00 PM</p>
+          <p class="event-venue">Grand Celebration Hall<br />Jaggayyapet</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── FAMILIES ── -->
+    <section id="families" class="section-pad bg-cream">
+      <h3 class="section-title">Our Families</h3>
+      <div class="families-wrap">
+        <div class="family-block reveal">
+          <h4 class="family-side">Groom's Family</h4>
+          <p><strong>Rama Krishna</strong></p>
+          <p>S/o Sri. Venkata Rao &amp; Smt. Lakshmi</p>
+          <p class="family-place">SM Pet, Jaggayyapet</p>
+        </div>
+        <div class="family-heart reveal">❤</div>
+        <div class="family-block reveal">
+          <h4 class="family-side">Bride's Family</h4>
+          <p><strong>Sravani</strong></p>
+          <p>D/o Sri. Ravi Kumar &amp; Smt. Padmavathi</p>
+          <p class="family-place">Jaggayyapet</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LOVE STORY ── -->
+    <section id="story" class="section-pad bg-white">
+      <h3 class="section-title">Our Story</h3>
+      <div class="timeline">
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-year">2022</span>
+            <h5>First Meeting</h5>
+            <p>Two souls crossed paths at a family gathering — a moment neither would forget.</p>
+          </div>
+        </div>
+
+        <div class="tl-item tl-right reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-year">2023</span>
+            <h5>Family Blessings</h5>
+            <p>Both families met, hearts aligned, and blessings were exchanged with joy.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-year">2024</span>
+            <h5>Engagement</h5>
+            <p>Under a canopy of marigolds and jasmine, they said yes to forever.</p>
+          </div>
+        </div>
+
+        <div class="tl-item tl-right reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-year">2026</span>
+            <h5>The Wedding</h5>
+            <p>01 May 2026 — the day two families become one, forever.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── GALLERY ── -->
+    <section id="gallery" class="section-pad bg-cream">
+      <h3 class="section-title">Cherished Moments</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal" data-src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" alt="Couple moment 1" loading="lazy" />
+        </div>
+        <div class="gallery-item reveal" data-src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80" alt="Couple moment 2" loading="lazy" />
+        </div>
+        <div class="gallery-item reveal" data-src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80">
+          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80" alt="Wedding ceremony" loading="lazy" />
+        </div>
+        <div class="gallery-item reveal" data-src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80">
+          <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80" alt="Wedding shoot" loading="lazy" />
+        </div>
+        <div class="gallery-item reveal" data-src="https://images.unsplash.com/photo-1509927083803-4bd519298ac4?w=600&q=80">
+          <img src="https://images.unsplash.com/photo-1509927083803-4bd519298ac4?w=600&q=80" alt="Together" loading="lazy" />
+        </div>
+        <div class="gallery-item reveal" data-src="https://images.unsplash.com/photo-1537635732538-072cbd4e04fc?w=600&q=80">
+          <img src="https://images.unsplash.com/photo-1537635732538-072cbd4e04fc?w=600&q=80" alt="Happy couple" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MAP ── -->
+    <section id="venue" class="section-pad bg-white">
+      <h3 class="section-title">Find Us Here</h3>
+      <div class="map-wrap reveal">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30617.0!2d80.0963!3d17.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f0a2a2a2a2a3%3A0x0!2sJaggayyapet%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1617100000000"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          title="Wedding venue location"></iframe>
+      </div>
+    </section>
+
+    <!-- ── RSVP ── -->
+    <section id="rsvp" class="section-pad bg-cream">
+      <h3 class="section-title">Kindly RSVP</h3>
+      <p class="rsvp-sub">Please respond by 20 April 2026</p>
+
+      <!-- SUCCESS STATE (hidden by default) -->
+      <div id="rsvp-success" class="rsvp-success" style="display:none;">
+        <div class="success-icon">💌</div>
+        <h4>Thank You!</h4>
+        <p id="success-msg"></p>
+        <button class="rsvp-btn" style="max-width:220px;margin:1.5rem auto 0;" onclick="resetRsvp()">Submit Another</button>
+      </div>
+
+      <!-- FORM -->
+      <!--
+        ════════════════════════════════════════════════════════
+        DATA FLOW — 3 destinations on every RSVP submit:
+
+        ① FORMSPREE  → emails you + stores in dashboard
+           Endpoint: https://formspree.io/f/xykoqlev  ✅ LIVE
+
+        ② GOOGLE SHEETS → auto-logs to your spreadsheet
+           Setup (one-time, 3 min):
+           a) Open: https://sheets.google.com → New Sheet → name it "Wedding RSVPs"
+           b) Go to Extensions → Apps Script → paste this code:
+              ─────────────────────────────────────────────────
+              function doPost(e) {
+                var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+                var data  = JSON.parse(e.postData.contents);
+                sheet.appendRow([
+                  new Date(), data.name, data.phone, data.email,
+                  data.guests, data.attendance, data.relation, data.message
+                ]);
+                return ContentService.createTextOutput('OK');
+              }
+              ─────────────────────────────────────────────────
+           c) Click Deploy → New Deployment → Web App
+              Execute as: Me | Who has access: Anyone → Deploy
+           d) Copy the Web App URL and replace GOOGLE_SCRIPT_URL below
+
+        ③ EMAILJS → instant email notification to couple
+           Setup (one-time, 5 min):
+           a) Go to https://emailjs.com → sign up free
+           b) Add Email Service (Gmail) → note Service ID
+           c) Create Email Template with these variables:
+              {{guest_name}}, {{phone}}, {{email}}, {{guests}},
+              {{attendance}}, {{relation}}, {{message}}, {{submitted_at}}
+           d) Note Template ID and Public Key
+           e) Replace EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID,
+              EMAILJS_PUBLIC_KEY below
+        ════════════════════════════════════════════════════════
+      -->
+      <form id="rsvp-form" class="rsvp-form reveal"
+            action="https://formspree.io/f/xykoqlev"
+            method="POST"
+            novalidate>
+
+        <input type="hidden" name="_subject" value="💍 New RSVP — Rama Krishna &amp; Sravani Wedding" />
+        <input type="text"   name="_gotcha"  style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="Full Name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="Phone Number" placeholder="+91 XXXXX XXXXX" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email (optional)</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" />
+          </div>
+          <div class="form-group">
+            <label for="guests">Number of Guests</label>
+            <select id="guests" name="Number of Guests">
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4+ Guests</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="attend">Attendance</label>
+            <select id="attend" name="Attendance">
+              <option value="Joyfully Accept ✅">Joyfully Accept</option>
+              <option value="Regretfully Decline ❌">Regretfully Decline</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="relation">Relation to Couple</label>
+            <input type="text" id="relation" name="Relation" placeholder="e.g. Friend, Family" />
+          </div>
+        </div>
+        <div class="form-group full-width">
+          <label for="message">Message for the Couple</label>
+          <textarea id="message" name="Message" rows="3" placeholder="Your wishes..."></textarea>
+        </div>
+        <button type="submit" class="rsvp-btn" id="rsvp-submit-btn">
+          <span id="btn-text">Confirm Attendance</span>
+          <span id="btn-loader" style="display:none;">Sending... ⏳</span>
+        </button>
+      </form>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer id="footer">
+      <div class="footer-om">ॐ</div>
+      <p class="footer-names">Rama Krishna &amp; Sravani</p>
+      <p class="footer-date">01 · May · 2026 · Jaggayyapet</p>
+      <p class="footer-hashtag">#RamaKrishnaSravaniWedding2026</p>
+      <p class="footer-note">Made with ❤ — Wishing you a lifetime of love &amp; happiness</p>
+    </footer>
+
+  </main>
+
+  <!-- ── LIGHTBOX ── -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <img id="lb-img" src="" alt="Gallery image" />
+  </div>
+
+  <!-- ── MUSIC BUTTON ── -->
+  <button id="music-btn" aria-label="Toggle music" title="Toggle background music">🎵</button>
+
+  <audio id="bg-music" loop>
+    <source src="https://www.chosic.com/wp-content/uploads/2021/07/The-Wedding-Piano-Melody.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
